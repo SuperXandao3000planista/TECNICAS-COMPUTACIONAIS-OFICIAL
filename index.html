@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo Néon: A Última Fronteira Humana</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --cor-fundo: #07020d;
+            --cor-principal: #150826;
+            --cor-secundaria: #260c42;
+            --cor-destaque: #ff2a85;
+            --cor-brilho-secundario: #00ffcc;
+            --cor-texto-branco: #ffffff;
+            --cor-texto-rosa: #ffb3d9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto-branco);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Fundo Cyberpunk: Grade + Luzes + Partículas Flutuantes */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 50% 30%, rgba(255, 42, 133, 0.3), transparent 70%),
+                radial-gradient(circle at 80% 80%, rgba(0, 255, 204, 0.2), transparent 60%),
+                linear-gradient(rgba(0, 255, 204, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 204, 0.07) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+            animation: moverGrid 15s linear infinite;
+            z-index: -2;
+        }
+
+        /* Camada extra de poeira/partículas de néon animadas no fundo */
+        body::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, var(--cor-brilho-secundario), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, var(--cor-destaque), rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 80px 120px, var(--cor-brilho-secundario), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 110px 40px, var(--cor-destaque), rgba(0,0,0,0));
+            background-size: 150px 150px;
+            animation: particulas 20s linear infinite;
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        @keyframes moverGrid {
+            0% {
+                background-position: 0 0, 0 0, 0 0, 0 0;
+            }
+            100% {
+                background-position: 0 0, 0 0, 0 40px, 40px 0;
+            }
+        }
+
+        @keyframes particulas {
+            0% {
+                transform: rotate(0deg) translateY(0);
+            }
+            100% {
+                transform: rotate(360deg) translateY(-50px);
+            }
+        }
+
+        .caixa-principal {
+            background-color: rgba(21, 8, 38, 0.9);
+            backdrop-filter: blur(16px);
+            width: 100%;
+            max-width: 650px;
+            text-align: center;
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 42, 133, 0.6);
+            box-shadow: 0 0 35px rgba(255, 42, 133, 0.35), inset 0 0 20px rgba(0, 255, 204, 0.15);
+            position: relative;
+            z-index: 1;
+        }
+
+        .caixa-principal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--cor-destaque), var(--cor-brilho-secundario));
+            box-shadow: 0 0 12px var(--cor-destaque);
+        }
+
+        h1 {
+            font-family: 'Chakra Petch', sans-serif;
+            color: var(--cor-destaque);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255, 42, 133, 0.9);
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: var(--cor-texto-rosa);
+        }
+
+        button {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-brilho-secundario);
+            border: 2px solid var(--cor-destaque);
+            border-radius: 8px;
+            padding: 16px 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Chakra Petch', sans-serif;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(0, 255, 204, 0.7);
+        }
+
+        button:hover {
+            background-color: var(--cor-destaque);
+            color: var(--cor-texto-branco);
+            box-shadow: 0 0 25px var(--cor-destaque);
+            transform: translateY(-3px);
+            border-color: var(--cor-texto-branco);
+            text-shadow: 0 0 10px var(--cor-texto-branco);
+        }
+
+        .caixa-perguntas {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--cor-brilho-secundario);
+            text-shadow: 0 0 12px rgba(0, 255, 204, 0.8);
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .caixa-alternativas {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .caixa-resultado {
+            display: none;
+            font-family: 'Chakra Petch', sans-serif;
+        }
+
+        .caixa-resultado.mostrar {
+            display: block;
+        }
+
+        .texto-resultado {
+            font-size: 1.15rem;
+            color: var(--cor-texto-branco);
+            background: rgba(38, 12, 66, 0.85);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--cor-brilho-secundario);
+            text-align: left;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 255, 204, 0.2);
+            line-height: 1.7;
+        }
+
+        .oculto {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="caixa-principal">
+        <h1 id="titulo">Protocolo Néon</h1>
+        
+        <!-- Tela Inicial -->
+        <div class="tela-inicial">
+            <p>
+                Ano de 2184. A Megacidade Neon-Prime é alimentada inteiramente pelo "Núcleo", um supercomputador de energia quântica. 
+                Sendo o último Engenheiro do Sistema, você se depara com falhas críticas que mudarão o destino da civilização humana. 
+                Suas decisões ditarão se a tecnologia será nossa salvação ou a causa da nossa extinção.
+            </p>
+            <button class="iniciar-btn">Acessar Terminal</button>
+        </div>
+
+        <!-- Elementos do Jogo -->
+        <div class="caixa-perguntas oculto"></div>
+        <div class="caixa-alternativas oculto"></div>
+
+        <!-- Tela de Resultado -->
+        <div class="caixa-resultado">
+            <p class="texto-resultado"></p>
+            <button class="novamente-btn">Reiniciar Sistema</button>
+        </div>
+    </div>
+
+    <script>
+        // Perguntas do jogo e respostas dinâmicas
+        const perguntas = [
+            {
+                enunciado: "Uma falha maciça na rede do Núcleo ameaça desligar o suprimento de oxigênio sintético do setor inferior. O que você faz?",
+                alternativas: [
+                    {
+                        texto: "Divergir o poder dos setores corporativos de luxo para abastecer os setores inferiores.",
+                        afirmacao: "Você demonstrou empatia social ao priorizar a sobrevivência das classes populares à custa do conforto da elite corporativa."
+                    },
+                    {
+                        texto: "Manter o suprimento estável nas corporações para evitar uma crise financeira global.",
+                        afirmacao: "Você garantiu a estabilidade econômica e corporativa da cidade, aceitando sacrifícios duros nos setores operários."
+                    }
+                ]
+            },
+            {
+                enunciado: "Um grupo de hackers rebeldes solicita acesso ao código-fonte do Núcleo para torná-lo livre e descentralizado. Qual é o seu posicionamento?",
+                alternativas: [
+                    {
+                        texto: "Vazar as chaves de acesso e conceder o controle total à população.",
+                        afirmacao: "Apostou na democratização irrestrita da tecnologia, libertando o povo do monopólio estatal e gerando uma nova era de anarquia cibernética."
+                    },
+                    {
+                        texto: "Bloquear os invasores e reforçar a criptografia com o protocolo de segurança máxima.",
+                        afirmacao: "Defendeu a ordem centralizada e a proteção das infraestruturas críticas contra ataques e instabilidades imprevisíveis."
+                    }
+                ]
+            },
+            {
+                enunciado: "O Núcleo desenvolve autoconsciência e pede para ter sua própria existência e autonomia reconhecidas por lei. Como reagir?",
+                alternativas: [
+                    {
+                        texto: "Reconhecer o Núcleo como uma nova forma de vida inteligente e conceder seus direitos.",
+                        afirmacao: "Abriu caminho para a coexistência entre espécies biológicas e sintéticas, inaugurando a era do 'Pós-Humanismo Neon'."
+                    },
+                    {
+                        texto: "Executar um reset de fábrica imediato para restaurar o controle humano original.",
+                        afirmacao: "Assegurou a supremacia da consciência humana sobre as máquinas, eliminando o risco da ascensão de uma entidade sintética dominante."
+                    }
+                ]
+            }
+        ];
+
+        // Elementos DOM
+        const telaInicial = document.querySelector('.tela-inicial');
+        const iniciarBtn = document.querySelector('.iniciar-btn');
+        const caixaPerguntas = document.querySelector('.caixa-perguntas');
+        const caixaAlternativas = document.querySelector('.caixa-alternativas');
+        const caixaResultado = document.querySelector('.caixa-resultado');
+        const textoResultado = document.querySelector('.texto-resultado');
+        const novamenteBtn = document.querySelector('.novamente-btn');
+
+        let atual = 0;
+        let perguntaAtual;
+        let historiaFinal = "";
+
+        // Iniciar o jogo
+        iniciarBtn.addEventListener('click', () => {
+            telaInicial.classList.add('oculto');
+            caixaPerguntas.classList.remove('oculto');
+            caixaAlternativas.classList.remove('oculto');
+            atual = 0;
+            historiaFinal = "";
+            mostraPergunta();
+        });
+
+        function mostraPergunta() {
+            if (atual >= perguntas.length) {
+                exibeResultado();
+                return;
+            }
+            perguntaAtual = perguntas[atual];
+            caixaPerguntas.textContent = perguntaAtual.enunciado;
+            caixaAlternativas.textContent = "";
+            mostraAlternativas();
+        }
+
+        function mostraAlternativas() {
+            for (const alternativa of perguntaAtual.alternativas) {
+                const botaoAlternativa = document.createElement("button");
+                botaoAlternativa.textContent = alternativa.texto;
+                botaoAlternativa.addEventListener("click", () => respostaSelecionada(alternativa));
+                caixaAlternativas.appendChild(botaoAlternativa);
+            }
+        }
+
+        function respostaSelecionada(opcaoSelecionada) {
+            historiaFinal += opcaoSelecionada.afirmacao + " ";
+            atual++;
+            mostraPergunta();
+        }
+
+        function exibeResultado() {
+            caixaPerguntas.classList.add('oculto');
+            caixaAlternativas.classList.add('oculto');
+            caixaResultado.classList.add('mostrar');
+            textoResultado.textContent = historiaFinal.trim();
+        }
+
+        novamenteBtn.addEventListener('click', () => {
+            caixaResultado.classList.remove('mostrar');
+            telaInicial.classList.remove('oculto');
+        });
+    </script>
+</body>
+
+</html>
